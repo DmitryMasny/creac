@@ -3,12 +3,13 @@ import 'reactflow/dist/style.css';
 import { useCallback, MouseEvent } from 'react';
 
 import { useAppStore } from '@/stores/useAppStore';
+import { useNodes, useTreeNodes } from '@/stores';
 
 const Nodes = () => {
-  const { nodes: components, setSelectedNode } = useAppStore();
+  const { treeNodes } = useTreeNodes();
+  const { setSelectedNode } = useNodes();
 
-  console.log('component', components);
-  const nodes = Object.values(components).map(component => ({
+  const nodes = treeNodes.map(component => ({
     id: component.id,
     type: 'default',
     position: component.position || {

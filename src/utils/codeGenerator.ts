@@ -1,7 +1,7 @@
 import { ComponentNode } from '@/types';
 
 export const generateComponentCode = (node: ComponentNode): string => {
-  console.log('node', node);
+  // console.log('node', node);
   const propsString =
     (node.props &&
       Object.entries(node.props)
@@ -16,7 +16,7 @@ export const generateComponentCode = (node: ComponentNode): string => {
   //   return `<${node.type} ${propsString}>\n${childrenCode}\n</${node.type}>`;
   // }
 
-  return `<${node.type} ${propsString} />`;
+  return `<${node.as || node.type} ${propsString} />`;
 };
 
 export const getComponentsCode = (components: ComponentNode[]) => {

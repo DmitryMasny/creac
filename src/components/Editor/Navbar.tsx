@@ -5,21 +5,19 @@ import ExportButton from './ExportButton';
 
 import { siteConfig } from '@/config/site';
 
+//EDITOR NAVBAR
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="navbar bg-base-100 sticky top-0 z-50 mx-auto max-w-7xl px-4">
+    <div className="navbar bg-base-100 sticky top-0 z-50 px-4">
       {/* Левый сектор - лого и навигация */}
       <div className="navbar-start">
         <div className="flex items-center gap-4">
-          {/* Бренд */}
           <Link className="flex items-center gap-2 text-xl font-bold" to="/">
-            <div className="bg-primary flex h-8 w-8 items-center justify-center rounded-lg">
-              {/* Замени на свой логотип */}
-              <span className="text-sm font-bold text-white">ç</span>
-            </div>
-            <span>creac strela breack</span>
+            <img src="nc.png" alt="Noc" srcSet="nc.png 512w" width={32} />
+
+            <span>node→code</span>
           </Link>
         </div>
       </div>

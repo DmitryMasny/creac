@@ -1,4 +1,4 @@
-import { HeartFilledIcon } from '../icons';
+// import { HeartFilledIcon } from '../icons';
 
 import { useAppStore } from '@/stores/useAppStore';
 
@@ -18,8 +18,7 @@ const ExportButton = () => {
 
   return (
     <button className="btn" onClick={handleExport}>
-      <HeartFilledIcon className="text-danger" />
-      Export
+      Export →
     </button>
   );
 };

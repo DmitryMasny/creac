@@ -1,4 +1,4 @@
-import { useHistoryActions } from '@/stores/useAppStore';
+import { useHistoryActions } from '@/stores';
 import { useEffect } from 'react';
 
 export const HistoryHandler = () => {
@@ -7,8 +7,12 @@ export const HistoryHandler = () => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'z') {
-        if (e.shiftKey) redo();
-        else undo();
+        if (e.shiftKey) {
+          redo();
+        } else {
+          console.log('1212112211221');
+          undo();
+        }
       }
     };
     window.addEventListener('keydown', handleKeyDown);

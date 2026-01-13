@@ -3,26 +3,28 @@ import {
   LiveEditor,
   LiveError,
   LivePreview as LP,
+  LiveContext,
 } from 'react-live';
 
-import { useAppStore } from '@/stores/useAppStore';
-import { getComponentsCode } from '@/utils';
+import { generateComponentCode } from '@/utils';
+import { useNodes } from '@/stores';
 
-const LivePreview = () => {
-  const { nodes } = useAppStore();
+const LiveView = () => {
+  const { selectedNode } = useNodes();
 
-  const code = getComponentsCode(Object.values(nodes));
+  const code =
+    (selectedNode && generateComponentCode(selectedNode)) || undefined;
 
   console.log('code', code);
   // const scope = {styled, headerProps};
   const scope = {};
 
   return (
-    <div className="preview">
-      <LiveProvider code={code[0]} scope={scope}>
-        <LiveEditor />
-        <LiveError />
+    <div className="preview h-full">
+      <LiveProvider code={code} scope={scope}>
+        {/* <LiveEditor className="h-full w-full flex-1" /> */}
         <LP />
+        <LiveError className="text-base-content/70 h-full w-full overflow-auto p-4 text-xs text-wrap @[pre]:h-full" />
       </LiveProvider>
     </div>
   );
@@ -55,4 +57,4 @@ const LivePreview = () => {
 //   return <div className="preview">{components.map(renderComponent)}</div>;
 // };
 
-export default LivePreview;
+export default LiveView;

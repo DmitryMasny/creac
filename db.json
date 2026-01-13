@@ -1,0 +1,17 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "Untitled",
+      "nodes": "{\"index\":{\"id\":\"index\",\"title\":\"Главная страница\",\"type\":\"page\",\"parentId\":null,\"childrenIds\":[]}}",
+      "components": "",
+      "updated": "2026-01-13T10:01:59.008Z",
+      "config": {
+        "type": "default"
+      }
+    }
+  ],
+  "profile": {
+    "name": "Noc"
+  }
+}

@@ -1,5 +1,3 @@
-import { LazyExoticComponent } from 'react';
-
 // Базовые пропсы, которые есть у всех компонентов
 export interface BaseComponentProps {
   key?: string;
@@ -15,6 +13,7 @@ export type PropValue =
   | boolean
   | undefined
   | null
+  | Function
   | PropValue[]
   | { [key: string]: PropValue };
 
@@ -42,13 +41,15 @@ export interface ComponentMeta {
 export interface ComponentNode {
   id: string;
   type: string;
-  name: string;
+  title: string;
 
   props?: Record<string, PropValue>;
 
   /** связи */
   parentId?: string | null;
   childrenIds?: string[];
+  children?: string[];
+  componentId?: string | null;
 
   /** UI */
   position?: NodePosition;
@@ -56,18 +57,21 @@ export interface ComponentNode {
   isSelected?: boolean;
   isExpanded?: boolean;
 
+  updated?: Date;
+
   /** код / импорт */
-  importPath?: LazyExoticComponent<any> | string;
+  // importPath?: LazyExoticComponent<any> | string;
 
   /** мета */
   meta?: ComponentMeta;
   requiredProps?: string[];
-  propTypes?: Record<string, string>;
+  // propTypes?: Record<string, string>;
 
   /** стили */
   css?: string;
   className?: string;
+  as?: string;
 
   /** события */
-  eventHandlers?: Record<string, string>;
+  // eventHandlers?: Record<string, string>;
 }
